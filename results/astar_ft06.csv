@@ -1,0 +1,7 @@
+run_id,instance_id,family,n_jobs,n_machines,algorithm,variant,seed,time_budget_s,runtime_s,time_to_best_s,makespan,lower_bound,best_known,gap_pct,status,expanded,generated,max_frontier,pruned,duplicates,backtracks,iterations,restarts,machine
+ft06__astar__h1__s0,ft06,benchmarks,6,6,astar,h1,0,60,71.57,,,47,55,,timeout,632226,3274553,1640354,0,1001973,,,,x86_64 | Python 3.11.2
+ft06__astar__h2__s0,ft06,benchmarks,6,6,astar,h2,0,60,12.095,12.095,55,47,55,0,optimal,91609,548467,298853,0,158008,,,,x86_64 | Python 3.11.2
+ft06__astar__h3__s0,ft06,benchmarks,6,6,astar,h3,0,60,0.143,0.143,55,47,55,0,optimal,537,3150,1961,0,655,,,,x86_64 | Python 3.11.2
+ft06__astar_gt__h1__s0,ft06,benchmarks,6,6,astar_gt,h1,0,60,3.837,3.837,55,47,55,0,optimal,191143,296860,86550,0,19171,,,,x86_64 | Python 3.11.2
+ft06__astar_gt__h2__s0,ft06,benchmarks,6,6,astar_gt,h2,0,60,0.082,0.082,55,47,55,0,optimal,1655,2459,771,0,33,,,,x86_64 | Python 3.11.2
+ft06__astar_gt__h3__s0,ft06,benchmarks,6,6,astar_gt,h3,0,60,0.01,0.01,55,47,55,0,optimal,116,192,73,0,3,,,,x86_64 | Python 3.11.2

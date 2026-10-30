@@ -1,0 +1,7 @@
+run_id,instance_id,family,n_jobs,n_machines,algorithm,variant,seed,time_budget_s,runtime_s,time_to_best_s,makespan,lower_bound,best_known,gap_pct,status,expanded,generated,max_frontier,pruned,duplicates,backtracks,iterations,restarts,machine
+ft10__astar__h1__s0,ft10,benchmarks,10,10,astar,h1,0,60.0,54.21,,,655,930,,memory_limit,366821,3507657,2633188,0,507648,,,,x86_64 | Python 3.11.2
+ft10__astar__h2__s0,ft10,benchmarks,10,10,astar,h2,0,60.0,60.0,,,655,930,,timeout,107317,1073171,747967,0,217887,,,,x86_64 | Python 3.11.2
+ft10__astar__h3__s0,ft10,benchmarks,10,10,astar,h3,0,60.0,60.001,,,655,930,,timeout,43976,439761,306372,0,89413,,,,x86_64 | Python 3.11.2
+ft10__astar_gt__h1__s0,ft10,benchmarks,10,10,astar_gt,h1,0,60.0,60.0,,,655,930,,timeout,1472275,2871889,1251180,0,148434,,,,x86_64 | Python 3.11.2
+ft10__astar_gt__h2__s0,ft10,benchmarks,10,10,astar_gt,h2,0,60.0,60.0,,,655,930,,timeout,429584,857940,410312,0,18044,,,,x86_64 | Python 3.11.2
+ft10__astar_gt__h3__s0,ft10,benchmarks,10,10,astar_gt,h3,0,60.0,60.0,,,655,930,,timeout,152896,386234,217643,0,15695,,,,x86_64 | Python 3.11.2
