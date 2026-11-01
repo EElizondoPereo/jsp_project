@@ -10,16 +10,13 @@ from jsp.instance import read_instance
 from jsp.schedule import check_schedule, makespan
 from jsp.local_search import hill_climbing
 from jsp.astar import astar
-from jsp.dfs_bb import dfs_bb
-from jsp.instance import read_instance
-from jsp.schedule import check_schedule, makespan
+
 
 FIELDS = [
     "run_id", "instance_id", "family", "n_jobs", "n_machines", "algorithm", "variant", "seed",
     "time_budget_s", "runtime_s", "time_to_best_s", "makespan", "lower_bound", "best_known", "gap_pct",
     "status", "expanded", "generated", "max_frontier", "pruned", "duplicates", "backtracks",
     "iterations", "restarts","candidate_evaluations", "machine", "success",
-    "iterations", "restarts", "machine",
 ]
 
 ALGORITHMS = {
@@ -83,7 +80,6 @@ def run_one(path, algorithm, variant, seed, budget):
         "success": (None if best is None or result["makespan"] is None
                     else int(result["makespan"] == best)
                     ),
-        "machine": machine_info(),
     }
 
 
@@ -119,9 +115,7 @@ def main():
                           f"exp={row['expanded']} frontier={row['max_frontier']} "
                           f"iterations={row['iterations']} restarts={row['restarts']} "
                           f"evaluations={row['candidate_evaluations']}" )
-                    print(f"{row['instance_id']:>10} {variant:>9} ms={row['makespan']} best={row['best_known']} "
-                          f"status={row['status']} t={row['runtime_s']}s exp={row['expanded']} "
-                          f"frontier={row['max_frontier']}")
+                    
 
 
 if __name__ == "__main__":
