@@ -1,0 +1,3 @@
+run_id,instance_id,family,n_jobs,n_machines,algorithm,variant,seed,time_budget_s,runtime_s,time_to_best_s,makespan,lower_bound,best_known,gap_pct,status,expanded,generated,max_frontier,pruned,duplicates,backtracks,iterations,restarts,machine
+la04__astar_gt__h3__s0,la04,benchmarks,10,5,astar_gt,h3,0,600.0,5.209,5.209,590,537,590,0.0,optimal,40030,92686,48943,0,3713,,,,x86_64 | Python 3.11.2
+la16__astar_gt__h3__s0,la16,benchmarks,10,10,astar_gt,h3,0,600.0,428.961,,,717,945,,memory_limit,1596869,3229664,1403132,0,229663,,,,x86_64 | Python 3.11.2

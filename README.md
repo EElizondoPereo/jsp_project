@@ -1,13 +1,16 @@
 # TC6001 – Job-Shop Scheduling project
 
-Search, heuristics, local search for the classic job-shop problem (minimize makespan).
+Search, heuristics, local search and CSP for the classic job-shop problem (minimize makespan).
+Status: Session 1–3 work (baseline DFS + branch-and-bound, H1/H2/H3 bounds, A* (formulation A and Giffler-Thompson), instances, logging).
 
 ## Setup
 
 Python 3.10+.
+
 ```
 pip install -r requirements.txt
 ```
+
 `ortools` is only used to compute reference optima for our own instances (`reference_optima.py`).
 `job-shop-lib` is only used once, to export the OR-Library benchmarks to text files.
 Neither is one of our four methods.
@@ -35,7 +38,10 @@ Machines are numbered from 0.
 ```
 python run_experiments.py --instances instances/tiny --variants bound no_bound --budget 60
 python run_experiments.py --instances instances/benchmarks/ft06.txt --variants bound --budget 60
+python run_experiments.py --instances instances/benchmarks/ft06.txt --algorithm astar --variants h1 h2 h3 --budget 120
+python run_experiments.py --instances instances/benchmarks/ft06.txt --algorithm astar_gt --variants h1 h2 h3 --budget 120
 python tests/check_heuristics.py
+python tests/check_astar.py
 ```
 
 Each run appends one row to `results/runs.csv` (fields: see the Session 1 logging schema).
@@ -49,12 +55,16 @@ Every schedule is checked by `jsp/schedule.py` (precedence, no overlap, duration
 | jsp/generator.py | Seeded instance generator |
 | jsp/schedule.py | Feasibility checker and makespan |
 | jsp/dfs_bb.py | Baseline: DFS + branch-and-bound on formulation A |
-| jsp/bounds.py | H1 (job bound) and H2 (job + one-machine bound) |
+| jsp/bounds.py | H1 (job bound), H2 (job + one-machine bound), H3 (job bound + Jackson preemptive one-machine bound, built on `machine_ops`) |
+| jsp/branching.py | Successor rules: `all` (formulation A) and `gt` (Giffler-Thompson conflict set, active schedules) |
+| jsp/astar.py | A* with H1/H2/H3 and `all` or `gt` branching, duplicate detection, memory cap (`memory_limit` status) |
 | run_experiments.py | Runs algorithms on instance sets and writes the CSV log |
-| tests/check_heuristics.py | Checks H1/H2 admissibility at the root, consistency on random paths, and cost per call |
+| tests/check_heuristics.py | Checks H1/H2/H3 admissibility at the root, consistency and H1<=H2<=H3 on random paths, and cost per call |
+| tests/check_astar.py | Checks the six A* variants (all/gt x H1/H2/H3) return valid optimal schedules matching best_known on tiny and easy instances |
 
 ## Still to do
 
-- A* and Weighted A* with H1/H2 (Session 2 ablation grid)
+- Weighted A* with H1/H2 (A* with H1/H2/H3 is done: `jsp/astar.py`)
 - Multi-start hill climbing with N1/N2 (Session 3 design sheet)
+- CSP with MRV/LCV and forward checking (Session 4)
 - Plots in results/figures
