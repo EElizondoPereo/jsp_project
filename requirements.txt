@@ -1,0 +1,2 @@
+ortools>=9.10
+job-shop-lib>=1.7
